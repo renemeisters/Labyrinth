@@ -68,9 +68,12 @@ public class Gui extends JFrame{
             public void actionPerformed(ActionEvent e)
             {
               // display/center the jdialog when the button is pressed
-            	JLabel label = new JLabel("Gebe die Y Position 1-9 ein");
-          	  label.setBounds(320,100,200,20);
-          	  add(label);
+            	//textfield into int
+            	
+            	int x = Integer.parseInt(textfieldX.getText().toString());
+            	int y = Integer.parseInt(textfieldY.getText().toString());
+            	Labyrinth l = new Labyrinth(hoehe, breite);
+            	l.changeKachel(x, y, 'x');
             }
           });
       }
@@ -86,6 +89,7 @@ public class Gui extends JFrame{
 		  					if(k.getX() == i && k.getY()== j){
 		  						g.setColor(k.getColor());
 		  						g.fillRect(i*30, j*30, 30, 30);
+		  						
 		  		            }
 	  					}
 	  					
