@@ -1,3 +1,4 @@
+package view;
 
 import java.awt.Button;
 import java.awt.Color;
@@ -10,12 +11,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
+
+import model.Kachel;
+import model.Labyrinth;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,6 +24,13 @@ import javax.swing.JTextField;
 
 public class Gui extends JFrame{
 
+	
+	  JLabel labelx = new JLabel("Gebe die X Position 1-9 ein");
+	  JLabel labely = new JLabel("Gebe die Y Position 1-9 ein");
+	  JTextField textfieldX = new JTextField();
+	  JTextField textfieldY = new JTextField();
+      JButton btn = new JButton("Zum Block machen");
+	  
     public Gui() {
     Dimension windowSize = new Dimension(800, 600);
     setSize(windowSize);
@@ -48,37 +54,32 @@ public class Gui extends JFrame{
       protected void paintComponent(Graphics g) {
     	super.paintComponent(g);
           //drawSquare(g, hoehe,breite);
-    	  JLabel labelx = new JLabel("Gebe die X Position 1-9 ein");
-    	  JLabel labely = new JLabel("Gebe die Y Position 1-9 ein");
+    	
     	  labelx.setBounds(320,10,200,20);
     	  labely.setBounds(320,50,200,20);
-          JTextField textfieldX = new JTextField();
+      
            textfieldX.setBounds(320, 30, 80, 20);
-           JTextField textfieldY = new JTextField();
+    
            textfieldY.setBounds(320, 70, 80, 20);
-           JButton btn = new JButton("Zum Block machen");
+
            btn.setBounds(320, 90, 80, 20);
            add(labelx);
            add(labely);
           add(textfieldX);
           add(textfieldY);
           add(btn);
-          btn.addActionListener(new ActionListener()
-          {
-            public void actionPerformed(ActionEvent e)
-            {
-              // display/center the jdialog when the button is pressed
-            	//textfield into int
-            	
-            	int x = Integer.parseInt(textfieldX.getText().toString());
-            	int y = Integer.parseInt(textfieldY.getText().toString());
-            	Labyrinth l = new Labyrinth(hoehe, breite);
-            	l.changeKachel(x, y, 'x');
-            }
-          });
+      
       }
     });
   }
+  
+  
+public int returnXField(){
+        return Integer.parseInt(textfieldX.getText().toString());
+}
+    public int returnYField(){
+        return Integer.parseInt(textfieldY.getText().toString());
+    }
   
   public void drawSquare( int h, int b,ArrayList<Kachel> kachel){
 	  				
@@ -111,9 +112,13 @@ public class Gui extends JFrame{
   }
   
   
-  
+  public void addFieldChangeListener(ActionListener listenForFieldChangeButton){
+        btn.addActionListener(listenForFieldChangeButton);
+  }
 
-    
+    public void displayErrorMessage(String error){
+        JOptionPane.showMessageDialog(this,error);
+    }
 
     
     

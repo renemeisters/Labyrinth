@@ -1,3 +1,4 @@
+package model;
 import java.awt.Color;
 
 import javax.swing.JColorChooser;
@@ -14,23 +15,18 @@ import javax.swing.JFrame;
  * @author vmadmin
  */
 public class Kachel extends JFrame {
-    
-    private char blockType;
+   
     private int y;
     private int x;
     private Color color;
 
-    public Kachel(char blockType, int x, int y,Color color) {
-        this.blockType = blockType;
+    public Kachel(int x, int y,Color color) {
+
         this.x = x;
         this.y = y;
         this.color = color;
     }
-    
-    public char getBlockType(){
-        
-        return this.blockType;
-    }
+ 
     
     public Color getColor(){
     	return this.color;
@@ -40,10 +36,6 @@ public class Kachel extends JFrame {
     	this.color = color;
     }
     
-    public void setBlockType(char symbol){
-        this.blockType = symbol;
-        
-    }
     
     public int getX(){
         return this.x;
