@@ -86,23 +86,8 @@ public int returnXField(){
     }
 
     public int returnColorID(){
-        /*Color c = Color.gray;
-        try{
-        int colorID = Integer.parseInt(textfieldY.getText());
-        switch (colorID){
-            case 0:
-                c = Color.gray;
-                break;
-            case 1:
-                c = Color.green;
-            case 2:
-                c = Color.blue;
-        }
 
-        }catch (NumberFormatException ex){
-            this.displayErrorMessage("Geben sie eine Zahl zwischen 0-2 ein");
-        }*/
-        return Integer.parseInt(textfieldY.getText());
+        return Integer.parseInt(textfieldColor.getText());
     }
   public void drawSquare( int h, int b,ArrayList<Kachel> kachel){
 	  				
