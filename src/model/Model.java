@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.awt.Color;
 
 public class Model {
 	private Labyrinth l;
@@ -11,8 +12,8 @@ public class Model {
 		l = new Labyrinth(hoehe, breite);
 	}
 
-	public void changeKachel(int x, int y) {
-		l.changeKachel(x,y);
+	public void changeKachel(int x, int y, Color c) {
+		l.changeKachel(x,y,c);
 		
 	}
 

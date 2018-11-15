@@ -27,6 +27,8 @@ public class Gui extends JFrame{
 	
 	  JLabel labelx = new JLabel("Gebe die X Position 1-9 ein");
 	  JLabel labely = new JLabel("Gebe die Y Position 1-9 ein");
+	  JLabel labelColor = new JLabel("0: Grau|leer,1: grün|zerbrechbarer Block, 2: blau|fester Block");
+	  JTextField textfieldColor = new JTextField();
 	  JTextField textfieldX = new JTextField();
 	  JTextField textfieldY = new JTextField();
       JButton btn = new JButton("Zum Block machen");
@@ -57,14 +59,16 @@ public class Gui extends JFrame{
     	
     	  labelx.setBounds(320,10,200,20);
     	  labely.setBounds(320,50,200,20);
-      
+    	  labelColor.setBounds(320,90,400,20);
            textfieldX.setBounds(320, 30, 80, 20);
-    
+            textfieldColor.setBounds(320,110,80,20);
            textfieldY.setBounds(320, 70, 80, 20);
 
-           btn.setBounds(320, 90, 80, 20);
+           btn.setBounds(320, 140, 80, 20);
            add(labelx);
            add(labely);
+           add(labelColor);
+           add(textfieldColor);
           add(textfieldX);
           add(textfieldY);
           add(btn);
@@ -80,7 +84,26 @@ public int returnXField(){
     public int returnYField(){
         return Integer.parseInt(textfieldY.getText().toString());
     }
-  
+
+    public int returnColorID(){
+        /*Color c = Color.gray;
+        try{
+        int colorID = Integer.parseInt(textfieldY.getText());
+        switch (colorID){
+            case 0:
+                c = Color.gray;
+                break;
+            case 1:
+                c = Color.green;
+            case 2:
+                c = Color.blue;
+        }
+
+        }catch (NumberFormatException ex){
+            this.displayErrorMessage("Geben sie eine Zahl zwischen 0-2 ein");
+        }*/
+        return Integer.parseInt(textfieldY.getText());
+    }
   public void drawSquare( int h, int b,ArrayList<Kachel> kachel){
 	  				
 	  			  Graphics g = this.getGraphics();

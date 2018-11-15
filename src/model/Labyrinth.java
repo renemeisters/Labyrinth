@@ -45,12 +45,12 @@ public class Labyrinth extends JPanel{
     	return kacheln;
     }
     
-    public void changeKachel(int xPos, int yPos){
+    public void changeKachel(int xPos, int yPos, Color c){
         
         for (Kachel kachel : kacheln) {
             if(kachel.getX() == xPos && kachel.getY()== yPos){
                 
-            	kachel.setColor(Color.CYAN);
+            	kachel.setColor(c);
                
              }
         }

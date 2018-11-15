@@ -3,11 +3,13 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
-
+import java.awt.Color;
 import model.Labyrinth;
 import model.Model;
 import view.Gui;
 import view.View;
+
+import javax.swing.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,7 +21,7 @@ import view.View;
  *
  * @author vmadmin
  */
-public class Controller {
+public class Controller extends JFrame {
     private static View v;
     private static Model m;
     private static int hoehe;
@@ -50,13 +52,29 @@ public class Controller {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            int x, y;
+            int x, y,colorID;
             try{
 
                 x = g.returnXField();
                 y = g.returnYField();
+                colorID = g.returnColorID();
+                Color c;
+                switch (colorID){
+                    case 0:
+                        c = Color.gray;
+                        break;
+                    case 1:
+                        c = Color.green;
+                        break;
+                    case 2:
+                        c = Color.blue;
+                        break;
+                    default:
+                        c = Color.gray;
+                        break;
+                }
 
-                m.changeKachel(x,y);
+                m.changeKachel(x,y,c);
                 v.drawLabyrinth(hoehe,breite,m);
             }
             catch (NumberFormatException ex){
